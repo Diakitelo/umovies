@@ -40,13 +40,20 @@ export default function Header() {
             <img className="h-90 w-90 pr-3" src={PlayIcon} alt="play-icon" />
             <span>Watch Trailer</span>
           </div>
-          <div className=" p-2">
-            <a
-              href="/home"
-              className="text-white bg-red hover:text-white px-10 py-2 rounded-md text-base font-medium uppercase"
-            >
-              book show
-            </a>
+          <div className="p-2 flex justify-between">
+            <div>
+              <a
+                href="/home"
+                className="text-white bg-red hover:text-white px-10 py-2 rounded-md text-base font-medium uppercase"
+              >
+                book show
+              </a>
+            </div>
+            <div>
+              <span className="bg-red px-5 rounded-md"></span>
+              <span className="bg-red px-5 rounded-md"></span>
+              <span className="bg-red px-5 rounded-md"></span>
+            </div>
           </div>
         </div>
       </div>
