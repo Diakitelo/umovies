@@ -9,7 +9,7 @@ export default function RecommendedMovies() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h4 className="uppercase text-lg text-white px-4 pt-16">top actions</h4>
 
-        <div className="flex justify-between text-3xl uppercase text-white px-4 py-4">
+        <div className="flex justify-between text-3xl uppercase text-white px-4 pb-4">
           <p>Recommended movies</p>
           <div>
             <span className="bg-red px-2 m-1 text-white">L</span>
