@@ -19,7 +19,9 @@ export default function Footer() {
           <div></div>
         </div>
         <div className="w-4/12 flex text-gray-500 flex-col">
-          <h4 className="uppercase text-xl text-white pb-3">quick links</h4>
+          <h4 className="uppercase text-lg md:text-xl text-white pb-3">
+            quick links
+          </h4>
           <Link to="#">Movies</Link>
           <Link to="#">Actors</Link>
           <Link to="#">News</Link>

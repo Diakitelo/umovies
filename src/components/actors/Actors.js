@@ -95,19 +95,18 @@ function Actors() {
         <h4 className="uppercase text-lg text-white px-4 pt-16">top actors</h4>
         <div className="flex justify-between text-xl md:text-3xl uppercase text-white px-4 ">
           <p>movies by actors</p>
-          <div className="hidden md:block">
-            {/* <input className="focus:ring-2 focus:ring-blue-900 ..."></input> */}
+          <div>
             <button
               className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
               onClick={previous}
             >
-              <Icon icon={chevronLeft} width={20} height={40} />
+              <Icon icon={chevronLeft} className="md:w-6 md:h-10" />
             </button>
             <button
               className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
               onClick={next}
             >
-              <Icon icon={chevronRight} width={20} height={40} />
+              <Icon icon={chevronRight} className="md:w-6 md:h-10" />
             </button>
           </div>
         </div>

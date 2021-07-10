@@ -8,7 +8,7 @@ export const routes = [
     fallback: <div> Loading... </div>,
   },
   {
-    path: '/p',
+    path: '/login',
     component: lazy(() => import('../pages/LoginPage')),
     exact: false,
     fallback: <div> Loading... </div>,

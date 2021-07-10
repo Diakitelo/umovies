@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Transition} from '@headlessui/react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 
 import logo from '../../assets/UMovies.svg';
 
@@ -13,7 +13,9 @@ function NavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img className="h-90 w-90" src={logo} alt="logo" />
+                <Link to="/home">
+                  <img className="h-90 w-90" src={logo} alt="logo" />
+                </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -26,14 +28,14 @@ function NavBar() {
                   </NavLink>
 
                   <NavLink
-                    to="/home/login"
+                    to="/"
                     className="text-gray-300 hover:bg-gray-700 active:bg-green-700 hover:text-white px-3 py-2 text-lg font-medium"
                   >
                     Shows
                   </NavLink>
 
                   <NavLink
-                    to="/p"
+                    to="/"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-lg font-medium"
                   >
                     Actors
@@ -55,10 +57,11 @@ function NavBar() {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block px-5 space-x-2">
               <NavLink
-                to="/home"
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                to="/login"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 text-lg font-medium"
+                activeClassName="border-b-4 border-red-500"
               >
                 LOG IN
               </NavLink>
@@ -164,13 +167,13 @@ function NavBar() {
                   Community
                 </NavLink>
                 <NavLink
-                  to="/home"
+                  to="/login"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                 >
                   LOG IN
                 </NavLink>
                 <NavLink
-                  to="/home"
+                  to="/"
                   className="text-white bg-red hover:text-white px-3 py-2 rounded-md text-lg font-medium"
                 >
                   SIGN UP

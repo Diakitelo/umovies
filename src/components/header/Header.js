@@ -24,7 +24,6 @@ function Header() {
   }, [dispatch]);
 
   const settings = {
-    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -67,7 +66,7 @@ function Header() {
                   />
                   <span>{fShortenNumber(movie.popularity)} Reviews</span>
                 </div>
-                <div className="text-white flex align-center p-2">
+                <div className="text-white flex align-center p-2 pb-5">
                   <img
                     className="h-90 w-90 pr-3"
                     src={PlayIcon}

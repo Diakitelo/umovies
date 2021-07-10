@@ -124,18 +124,18 @@ function Posters(props) {
                 French
               </span> */}
             </div>
-            <div className="hidden md:block">
+            <div>
               <button
                 className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
                 onClick={previous}
               >
-                <Icon icon={chevronLeft} width={20} height={40} />
+                <Icon icon={chevronLeft} className="md:w-6 md:h-10 w-4 h-5" />
               </button>
               <button
                 className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
                 onClick={next}
               >
-                <Icon icon={chevronRight} width={20} height={40} />
+                <Icon icon={chevronRight} className="md:w-6 md:h-10 w-4 h-5" />
               </button>
             </div>
           </div>

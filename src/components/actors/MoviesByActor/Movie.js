@@ -5,7 +5,7 @@ export default function Movie({movie}) {
 
   return (
     <div className="flex space-x-2">
-      <div className=" relative">
+      <div className="relative">
         <div className="w-48 rounded-lg">
           <img
             src={imgUrl + movie.poster_path}

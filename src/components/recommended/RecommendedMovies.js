@@ -72,18 +72,18 @@ function RecommendedMovies(props) {
         <h4 className="uppercase text-lg text-white px-4 pt-16">top actions</h4>
         <div className="flex justify-between text-xl md:text-3xl uppercase text-white px-4 pb-4">
           <p>Recommended movies</p>
-          <div className="hidden md:block">
+          <div>
             <button
               className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
               onClick={previous}
             >
-              <Icon icon={chevronLeft} width={20} height={40} />
+              <Icon icon={chevronLeft} className="md:w-6 md:h-10" />
             </button>
             <button
               className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
               onClick={next}
             >
-              <Icon icon={chevronRight} width={20} height={40} />
+              <Icon icon={chevronRight} className="md:w-6 md:h-10" />
             </button>
           </div>
         </div>
