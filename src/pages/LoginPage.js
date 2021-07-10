@@ -2,7 +2,7 @@ import React from 'react';
 
 import NavBar from '../components/navbar/NavBar';
 import Input from '../components/form/Input';
-import Modal from '../components/modal/Modal';
+import PasswordForgot from '../components/modal/PasswordForgot';
 
 export default function LoginPage() {
   return (
@@ -40,7 +40,7 @@ export default function LoginPage() {
           >
             Sign in
           </button>
-          <Modal modalTitle="Forgot your password?" />
+          <PasswordForgot modalTitle="Forgot your password?" />
         </section>
       </div>
     </div>

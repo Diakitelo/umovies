@@ -1,12 +1,12 @@
 import React, {lazy} from 'react';
 
 export const routes = [
-  {
+  /* {
     path: '/',
     exact: true,
-    redirect: '/home',
+    redirect: '/',
     fallback: <div> Loading... </div>,
-  },
+  },*/
   {
     path: '/login',
     component: lazy(() => import('../pages/LoginPage')),
@@ -14,7 +14,7 @@ export const routes = [
     fallback: <div> Loading... </div>,
   },
   {
-    path: '/home',
+    path: '/',
     component: lazy(() => import('../pages/LandingPage')),
     exact: false,
     private: false,

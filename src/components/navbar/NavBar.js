@@ -13,14 +13,14 @@ function NavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link to="/home">
+                <Link to="/">
                   <img className="h-90 w-90" src={logo} alt="logo" />
                 </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavLink
-                    to="/home"
+                    to="/"
                     className=" hover:bg-gray-700 active:bg-green-700 text-white px-3 py-2  text-lg font-medium"
                     activeClassName="border-b-4 border-red-500"
                   >
@@ -42,14 +42,14 @@ function NavBar() {
                   </NavLink>
 
                   <NavLink
-                    to="/home"
+                    to="/"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-lg font-medium"
                   >
                     News
                   </NavLink>
 
                   <NavLink
-                    to="/home"
+                    to="/"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-lg font-medium"
                   >
                     Community
@@ -66,7 +66,7 @@ function NavBar() {
                 LOG IN
               </NavLink>
               <NavLink
-                to="/home"
+                to="/"
                 className="text-white bg-red hover:text-white px-3 py-2 rounded-md text-lg font-medium"
               >
                 SIGN UP
@@ -133,35 +133,35 @@ function NavBar() {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <NavLink
-                  to="/home"
+                  to="/"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Movies
                 </NavLink>
 
                 <NavLink
-                  to="/home"
+                  to="/"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Shows
                 </NavLink>
 
                 <NavLink
-                  to="/home"
+                  to="/"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Actors
                 </NavLink>
 
                 <NavLink
-                  to="/home"
+                  to="/"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   News
                 </NavLink>
 
                 <NavLink
-                  to="/home"
+                  to="/"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Community
