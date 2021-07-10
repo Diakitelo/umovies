@@ -44,6 +44,38 @@ function Actors() {
     slidesToShow: 6,
     slidesToScroll: 1,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1045,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 740,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const next = () => {
@@ -61,9 +93,9 @@ function Actors() {
     <div className="h-5/6 bg-blue">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h4 className="uppercase text-lg text-white px-4 pt-16">top actors</h4>
-        <div className="flex justify-between text-3xl uppercase text-white px-4 ">
+        <div className="flex justify-between text-xl md:text-3xl uppercase text-white px-4 ">
           <p>movies by actors</p>
-          <div>
+          <div className="hidden md:block">
             {/* <input className="focus:ring-2 focus:ring-blue-900 ..."></input> */}
             <button
               className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
@@ -91,9 +123,9 @@ function Actors() {
           </Slider>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="flex h-auto items-end justify-between text-3xl uppercase text-white px-4 py-4">
-          <div className="w-1/3 flex relative">
+          <div className="w-1/3 relative hidden lg:block">
             <img
               className="w-72"
               src={imgUrl + selectedActor?.profile_path}
@@ -119,7 +151,7 @@ function Actors() {
               </div>
             </div>
           </div>
-          <div className="w-2/3 capitalize ">
+          <div className="lg:w-2/3 capitalize w-full ">
             <MoviesByActor
               movies={actorMovies?.results}
               selectedActor={selectedActor?.name}

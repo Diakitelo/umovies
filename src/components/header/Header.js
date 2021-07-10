@@ -24,12 +24,12 @@ function Header() {
   }, [dispatch]);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     // pauseOnHover: true,
     arrows: false,
   };

@@ -47,6 +47,38 @@ function Posters(props) {
     slidesToShow: 5,
     slidesToScroll: 5,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 740,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
 
   const next = () => {
@@ -92,7 +124,7 @@ function Posters(props) {
                 French
               </span> */}
             </div>
-            <div>
+            <div className="hidden md:block">
               <button
                 className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
                 onClick={previous}

@@ -35,13 +35,33 @@ function News() {
     slidesToShow: 2,
     speed: 500,
     centerPadding: '90px',
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 740,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="h-5/6 bg-blue">
+    <div className="h-5/6 bg-blue pb-5 md:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h4 className="uppercase text-lg text-white px-4 pt-16">trending</h4>
-        <div className="flex justify-between text-3xl uppercase text-white px-4 ">
+        <div className="flex justify-between text-xl md:text-3xl uppercase text-white px-4 ">
           <p>Latest news</p>
         </div>
       </div>

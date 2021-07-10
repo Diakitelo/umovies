@@ -17,6 +17,32 @@ export default function MoviesByActor({movies, selectedActor}) {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 670,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const next = () => {
@@ -34,7 +60,7 @@ export default function MoviesByActor({movies, selectedActor}) {
               best {selectedActor} movies
             </span>
           </div>
-          <div>
+          <div className="hidden md:block">
             <button
               className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
               onClick={previous}
@@ -50,7 +76,7 @@ export default function MoviesByActor({movies, selectedActor}) {
           </div>
         </div>
       </div>
-      <div className=" mx-auto">
+      <div className="space-x-3 mx-auto">
         <Slider {...settings} ref={sliderRef}>
           {movies?.map(movie => (
             <Movie movie={movie} key={movie.id} />

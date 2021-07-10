@@ -20,7 +20,7 @@ export default function New({movie}) {
             </span>
             <p className="py-4">{movie.overview?.slice(0, 150)}...</p>
           </div>
-          <div className="flex items-end py-4 ">
+          <div className="items-end py-4 hidden md:flex">
             <p className="hover:bg-red cursor-pointer px-2 py-2 rounded-lg ">
               Read More
             </p>
