@@ -14,20 +14,26 @@ export const routes = [
     fallback: <div> Loading... </div>,
   },
   {
+    path: '/details/:id',
+    component: lazy(() => import('../pages/MovieDetailPage')),
+    exact: false,
+    fallback: <div> Loading... </div>,
+  },
+  {
     path: '/',
     component: lazy(() => import('../pages/LandingPage')),
     exact: false,
     private: false,
     fallback: <div> Loading... </div>,
-    routes: [
+    /* routes: [
       {
-        path: '/home/login',
-        component: lazy(() => import('../pages/LoginPage')),
+        path: '/',
+        component: lazy(() => import('../pages/MovieDetailPage')),
         exact: false,
         private: false,
         fallback: <div> Loading... </div>,
       },
-    ],
+    ],*/
   },
   {
     path: '/protected',

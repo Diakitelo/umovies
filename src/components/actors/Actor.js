@@ -6,7 +6,7 @@ export default function Actor({actor, onClick}) {
   return (
     <div className="flex px-4 space-x-4 cursor-pointer" onClick={onClick}>
       <div className=" w-48  relative">
-        <div className="h-60 w-full rounded-lg">
+        <div className="h-60 w-full rounded-lg transition duration-500 hover:scale-105 transform cursor-pointer">
           <img
             src={imgUrl + actor.profile_path}
             alt={actor.name}

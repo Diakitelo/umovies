@@ -98,10 +98,9 @@ function Posters(props) {
                 onClick={() => stepperDispatch({type: 'hollywood'})}
                 className={
                   state.industry === 'hollywood'
-                    ? 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2  text-lg font-medium border-b-4 border-red-500'
-                    : 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2  text-lg font-medium'
+                    ? 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2 text-lg font-medium border-b-4 border-red-500'
+                    : 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2 text-lg font-medium'
                 }
-                // activeClassName="border-b-4 border-red-500"
               >
                 Hollywood
               </span>
@@ -110,32 +109,25 @@ function Posters(props) {
                 onClick={() => stepperDispatch({type: 'bollywood'})}
                 className={
                   state.industry === 'bollywood'
-                    ? 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2  text-lg font-medium border-b-4 border-red-500'
-                    : 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2  text-lg font-medium'
+                    ? 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2 text-lg font-medium border-b-4 border-red-500'
+                    : 'hover:bg-gray-700 cursor-pointer active:bg-green-700 text-white py-2 text-lg font-medium'
                 }
               >
                 Bollywood
               </span>
-
-              {/* <span
-                onClick={() => stepperDispatch({type: 'french'})}
-                className="text-gray-300 cursor-pointer hover:bg-gray-700 hover:text-white py-2 text-lg font-medium"
-              >
-                French
-              </span> */}
             </div>
             <div>
               <button
                 className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
                 onClick={previous}
               >
-                <Icon icon={chevronLeft} className="md:w-6 md:h-10 w-4 h-5" />
+                <Icon icon={chevronLeft} className="md:w-6 md:h-10 w-4 h-6" />
               </button>
               <button
                 className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
                 onClick={next}
               >
-                <Icon icon={chevronRight} className="md:w-6 md:h-10 w-4 h-5" />
+                <Icon icon={chevronRight} className="md:w-6 md:h-10 w-4 h-6" />
               </button>
             </div>
           </div>
