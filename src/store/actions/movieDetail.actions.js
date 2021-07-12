@@ -1,8 +1,9 @@
-import {createAPIEndpoint} from '../../api';
+import {createAPIEndpoint, ENDPIONTS} from '../../api';
 
 export const GET_MOVIE_DETAILS = 'GET_MOVIE_DETAILS';
 export const GET_MOVIE_VIDEO = 'GET_MOVIE_VIDEO';
 export const GET_ACTORS_OF_MOVIE = 'GET_ACTORS_OF_MOVIE';
+export const GET_MOVIES_BY_GENRE = 'GET_MOVIES_BY_GENRE';
 
 export function getMovieDetails(movie_id) {
   const request = createAPIEndpoint(
@@ -39,6 +40,21 @@ export function getActorsOfMovie(movie_id) {
     request.then(response =>
       dispatch({
         type: GET_ACTORS_OF_MOVIE,
+        payload: response.data,
+      }),
+    );
+}
+
+export function getMoviesByGenre(genre_id) {
+  const request = createAPIEndpoint(
+    ENDPIONTS.BASEENDPIONT,
+    `&with_genres=${genre_id}`,
+  ).fetchById();
+
+  return dispatch =>
+    request.then(response =>
+      dispatch({
+        type: GET_MOVIES_BY_GENRE,
         payload: response.data,
       }),
     );

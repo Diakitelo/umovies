@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import Slider from 'react-slick';
@@ -12,6 +12,8 @@ import NavBar from '../components/navbar/NavBar';
 import Footer from '../components/footer/Footer';
 import Actor from '../components/actors/Actor';
 import {fShortenNumber} from '../utils';
+import Avatar from '../assets/avatar.jpg';
+import Poster from '../components/posters/Poster';
 
 function MovieDetailPage() {
   const dispatch = useDispatch();
@@ -24,7 +26,17 @@ function MovieDetailPage() {
   const moviesActors = useSelector(
     Details => Details.movieDetail.movieDetail.actors,
   );
+  const sameGenreMovies = useSelector(
+    Details => Details.movieDetail.movieDetail.sameGenresMovies,
+  );
   let params = useParams();
+
+  const getProducer = moviesActors?.crew?.filter(
+    elem => elem.job === 'Producer',
+  );
+
+  console.log('moviesDetail?.genres', moviesDetail?.genres?.[0]?.id);
+  console.log('sameGenreMovies', sameGenreMovies?.results);
 
   //const url = 'https://image.tmdb.org/t/p/original/';
 
@@ -33,6 +45,10 @@ function MovieDetailPage() {
     dispatch(Actions.getMovieVideo(params.id));
     dispatch(Actions.getActorsOfMovie(params.id));
   }, [dispatch, params.id]);
+
+  useMemo(() => {
+    dispatch(Actions.getMoviesByGenre(moviesDetail?.genres?.[0]?.id));
+  }, [dispatch, moviesDetail?.genres]);
 
   const settings = {
     infinite: true,
@@ -67,22 +83,62 @@ function MovieDetailPage() {
     ],
   };
 
+  const settingsGenre = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 740,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+
   return (
-    <div>
+    <div className="bg-blue">
       <div className="z-50 absolute">
         <NavBar />
       </div>
-      <div className="bg-blue h-screen w-screen text-white">
+      <div className="text-white max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-screen pt-16">
-          <div className="w-1/2 p-8">
-            <div className=" h-96 rounded-lg">
+          <div className="w-7/12 m-5">
+            <div className="h-96 rounded-lg">
               <iframe
                 src={`https://www.youtube.com/embed/${moviesVideo?.results?.[0]?.key}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title="Embedded youtube"
-                className="h-96 w-full"
+                className="h-96 w-full rounded-lg"
               />
             </div>
             <h3 className="text-2xl py-5">Actors</h3>
@@ -94,10 +150,13 @@ function MovieDetailPage() {
               </Slider>
             </div>
           </div>
-          <div className="w-1/2 p-8">
-            <div className="flex space-x-2 pb-9">
+          <div className="w-5/12 m-5">
+            <div className="flex space-x-2 py-6">
               {moviesDetail?.genres?.map(genre => (
-                <div key={genre.id} className="bg-red rounded-lg px-2">
+                <div
+                  key={genre.id}
+                  className="bg-red rounded-lg px-2 text-base"
+                >
                   <p>#{genre.name}</p>
                 </div>
               ))}
@@ -105,21 +164,29 @@ function MovieDetailPage() {
             <h1 className="text-4xl font-semibold h-28">
               {moviesDetail.title}
             </h1>
-            <div className="flex justify-between py-2">
-              <div className="w-full flex justify-between text-gray-600">
-                <span>
-                  Popularity: {fShortenNumber(moviesDetail.popularity)}
-                </span>
-                <span>Release Date: {moviesDetail.release_date}</span>
-                <span>Budget: {fShortenNumber(moviesDetail.budget)}</span>
-                <span>Revenue: {fShortenNumber(moviesDetail.revenue)}</span>
-                <span>
-                  Vote count:
-                  {fShortenNumber(moviesDetail.vote_count)}
-                </span>
-                <span>Vote Average: {moviesDetail.vote_average}</span>
+            <div className="flex justify-between py-5">
+              <div className="flex space-x-2 items-center">
+                <div>
+                  <img
+                    src={Avatar}
+                    alt="quote"
+                    className="h-16 w-16 rounded-full"
+                  />
+                </div>
+                <div>
+                  <p>{getProducer?.[0].name}</p>
+                  <p className="text-gray-600">Producer</p>
+                </div>
+              </div>
+              <div className="flex space-x-2">
+                <div className="">
+                  <button className="text-white bg-red hover:text-white border-4 hover:bg-blue border-red-500 px-5 py-2 rounded-md text-base font-medium ">
+                    Follow {fShortenNumber(moviesDetail.revenue)}
+                  </button>
+                </div>
               </div>
             </div>
+
             <div>
               <p className="text-xl mb-3 border-b-4 border-red-500 w-16">
                 SYNOPSIS
@@ -138,12 +205,46 @@ function MovieDetailPage() {
                   )}
                 </div>
               ))}*/}
+              <div className=" flex justify-between space-x-4 text-gray-500  py-2">
+                <div>
+                  <p>Popularity</p>
+                  <p> {fShortenNumber(moviesDetail.popularity)}</p>
+                </div>
+                <div>
+                  <p>Release Date</p>
+                  <p>{moviesDetail.release_date}</p>
+                </div>
+                <div>
+                  <p>Budget</p>
+                  <p>{fShortenNumber(moviesDetail.budget)}</p>
+                </div>
+                <div>
+                  <p>Revenue</p>
+                  <p>{fShortenNumber(moviesDetail.revenue)}</p>
+                </div>
+                <div>
+                  <p>Vote count</p>
+                  <p>{fShortenNumber(moviesDetail.vote_count)}</p>
+                </div>
+                <div>
+                  <p>Vote average</p>
+                  <p>{fShortenNumber(moviesDetail.vote_average)}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-full">
-          <Footer className="w-full" />
-        </div>
+      </div>
+      <div className="pt-9 max-w-7xl flex flex-col items-center">
+        <Slider {...settingsGenre}>
+          {sameGenreMovies?.results?.map(movie => (
+            <Poster movie={movie} key={movie.id} />
+          ))}
+        </Slider>
+      </div>
+
+      <div className="pt-9">
+        <Footer />
       </div>
     </div>
   );

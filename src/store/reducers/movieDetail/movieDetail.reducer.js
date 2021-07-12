@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   video: [],
   actors: [],
+  sameGenresMovies: [],
 };
 
 const movieDetail = function (state = initialState, action) {
@@ -24,6 +25,12 @@ const movieDetail = function (state = initialState, action) {
       return {
         ...state,
         actors: action.payload,
+      };
+    }
+    case Actions.GET_MOVIES_BY_GENRE: {
+      return {
+        ...state,
+        sameGenresMovies: action.payload,
       };
     }
 

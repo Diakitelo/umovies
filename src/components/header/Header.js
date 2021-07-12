@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Slider from 'react-slick';
+import {Link} from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -75,14 +76,11 @@ function Header() {
                   <span>Watch Trailer</span>
                 </div>
                 <div className="p-2 flex justify-between">
-                  <div>
-                    <a
-                      href="/home"
-                      className="text-white bg-red hover:text-white px-10 py-2 rounded-md text-base font-medium uppercase"
-                    >
+                  <Link to={`details/${movie.id}`}>
+                    <button className="text-white bg-red hover:text-white px-10 py-2 rounded-md text-base font-medium uppercase">
                       book show
-                    </a>
-                  </div>
+                    </button>
+                  </Link>
                   {/* <div>
                     <span className="bg-red px-5 rounded-md"></span>
                     <span className="bg-red px-5 rounded-md"></span>
