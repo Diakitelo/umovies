@@ -1,6 +1,9 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
+import {Icon} from '@iconify/react';
+import chevronLeft from '@iconify-icons/akar-icons/chevron-left';
+import chevronRight from '@iconify-icons/akar-icons/chevron-right';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -17,6 +20,7 @@ import Poster from '../components/posters/Poster';
 
 function MovieDetailPage() {
   const dispatch = useDispatch();
+  const sliderRef = useRef();
   const moviesDetail = useSelector(
     Details => Details.movieDetail.movieDetail.data,
   );
@@ -86,7 +90,7 @@ function MovieDetailPage() {
   const settingsGenre = {
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 5,
     arrows: false,
     responsive: [
@@ -121,6 +125,13 @@ function MovieDetailPage() {
         },
       },
     ],
+  };
+
+  const next = () => {
+    sliderRef.current.slickNext();
+  };
+  const previous = () => {
+    sliderRef.current.slickPrev();
   };
 
   return (
@@ -235,15 +246,36 @@ function MovieDetailPage() {
           </div>
         </div>
       </div>
-      <div className="pt-9 max-w-7xl flex flex-col items-center">
-        <Slider {...settingsGenre}>
+      <div className="max-w-8xl mx-auto px-12 ">
+        <div className="flex justify-between items-center">
+          <div>
+            <h4 className="text-2xl py-8 text-white">
+              Movies in the same genre
+            </h4>
+          </div>
+          <div>
+            <button
+              className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
+              onClick={previous}
+            >
+              <Icon icon={chevronLeft} className="md:w-6 md:h-10 w-4 h-6" />
+            </button>
+            <button
+              className="bg-red text-white cursor-pointer px-2 m-1 hover:bg-white hover:text-red-600"
+              onClick={next}
+            >
+              <Icon icon={chevronRight} className="md:w-6 md:h-10 w-4 h-6" />
+            </button>
+          </div>
+        </div>
+        <Slider {...settingsGenre} ref={sliderRef}>
           {sameGenreMovies?.results?.map(movie => (
             <Poster movie={movie} key={movie.id} />
           ))}
         </Slider>
       </div>
 
-      <div className="pt-9">
+      <div className="pt-9 max-w-9xl mx-auto">
         <Footer />
       </div>
     </div>
