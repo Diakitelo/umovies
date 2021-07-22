@@ -92,7 +92,7 @@ function Posters(props) {
     <div className="h-5/6 bg-blue">
       <div className="bg-gradient-to-b from-black h-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center content-center  text-3xl uppercase text-white px-4 py-4">
+          <div className="flex justify-between items-center content-center text-xl md:text-3xl uppercase text-white px-4 py-4">
             <div className="flex items-baseline space-x-4">
               <span
                 onClick={() => stepperDispatch({type: 'hollywood'})}

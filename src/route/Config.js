@@ -17,14 +17,18 @@ export const routes = [
     path: '/details/:id',
     component: lazy(() => import('../pages/MovieDetailPage')),
     exact: false,
-    fallback: <div> Loading... </div>,
+    fallback: <div></div>,
   },
   {
     path: '/',
     component: lazy(() => import('../pages/LandingPage')),
     exact: false,
     private: false,
-    fallback: <div> Loading... </div>,
+    fallback: (
+      <div className="flex justify-center items-center h-screen w-full bg-blue">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-red-500"></div>
+      </div>
+    ),
     /* routes: [
       {
         path: '/',

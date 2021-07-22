@@ -5,7 +5,7 @@ import logo from '../../assets/UMovies.svg';
 
 export default function Footer() {
   return (
-    <div className="h-56 py-9 bg-blue">
+    <footer className="h-56 py-9 bg-blue">
       <div className="max-w-7xl flex mx-auto justify-between px-4 sm:px-6 lg:px-8">
         <div className="w-4/12">
           <div>
@@ -32,6 +32,6 @@ export default function Footer() {
           <h4 className="uppercase text-xl text-white pb-3">Newsletter</h4>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

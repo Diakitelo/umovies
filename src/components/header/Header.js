@@ -35,68 +35,70 @@ function Header() {
   };
 
   return (
-    <Slider {...settings}>
-      {hollywoodMovies?.results?.map(movie => (
-        <div key={movie.id}>
-          <div
-            className="h-screen bg-no-repeat bg-center bg-cover"
-            style={{
-              backgroundImage: `url(${url + movie.poster_path})`,
-              objectFit: 'cover',
-              boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,.2)',
-            }}
-          >
-            <div className="flex content-end flex-wrap h-5/6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="p-2">
-                <div className="text-white p-2">
-                  <p className="uppercase">{movie.release_date}</p>
-                </div>
-                <div className="text-white w-3/5 p-2">
-                  <h1 className="uppercase text-4xl tracking-widest md:tracking-wide ">
-                    {movie.original_title}
-                  </h1>
-                </div>
-                <div className="text-white w-3/5 p-2">
-                  <p>{movie.overview?.slice(0, 200)}...</p>
-                </div>
-                <div className="text-white flex align-center p-2">
-                  <img
-                    className="h-90 w-90 pr-3"
-                    src={StartIcon}
-                    alt="start-icon"
-                  />
-                  <span>{fShortenNumber(movie.popularity)} Reviews</span>
-                </div>
-                <div className="text-white flex align-center p-2 pb-5">
-                  <img
-                    className="h-90 w-90 pr-3"
-                    src={PlayIcon}
-                    alt="play-icon"
-                  />
-                  <span>Watch Trailer</span>
-                </div>
-                <div className="p-2 flex justify-between">
-                  <Link to={`details/${movie.id}`}>
-                    <button className="text-white bg-red hover:text-white px-10 py-2 rounded-md text-base font-medium uppercase">
-                      book show
-                    </button>
-                  </Link>
-                  {/* <div>
+    <header>
+      <Slider {...settings}>
+        {hollywoodMovies?.results?.map(movie => (
+          <div key={movie.id}>
+            <div
+              className="h-screen bg-no-repeat bg-center bg-cover"
+              style={{
+                backgroundImage: `url(${url + movie.poster_path})`,
+                objectFit: 'cover',
+                boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,.2)',
+              }}
+            >
+              <div className="flex content-end flex-wrap h-5/6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="p-2">
+                  <div className="text-white p-2">
+                    <p className="uppercase">{movie.release_date}</p>
+                  </div>
+                  <div className="text-white w-3/5 p-2">
+                    <h1 className="uppercase text-4xl tracking-widest md:tracking-wide ">
+                      {movie.original_title}
+                    </h1>
+                  </div>
+                  <div className="text-white w-3/5 p-2">
+                    <p>{movie.overview?.slice(0, 200)}...</p>
+                  </div>
+                  <div className="text-white flex align-center p-2">
+                    <img
+                      className="h-90 w-90 pr-3"
+                      src={StartIcon}
+                      alt="start-icon"
+                    />
+                    <span>{fShortenNumber(movie.popularity)} Reviews</span>
+                  </div>
+                  <div className="text-white flex align-center p-2 pb-5">
+                    <img
+                      className="h-90 w-90 pr-3"
+                      src={PlayIcon}
+                      alt="play-icon"
+                    />
+                    <span>Watch Trailer</span>
+                  </div>
+                  <div className="p-2 flex justify-between">
+                    <Link to={`details/${movie.id}`}>
+                      <button className="text-white bg-red hover:text-white px-10 py-2 rounded-md text-base font-medium uppercase">
+                        book show
+                      </button>
+                    </Link>
+                    {/* <div>
                     <span className="bg-red px-5 rounded-md"></span>
                     <span className="bg-red px-5 rounded-md"></span>
                     <span className="bg-red px-5 rounded-md"></span>
                   </div> */}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/*  <div className=" bg-red max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-5/6 flex justify-center content-around bg-opacity-50">
+              {/*  <div className=" bg-red max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-5/6 flex justify-center content-around bg-opacity-50">
 
         <h1>Avengers - Infinity war</h1>
       </div> */}
+            </div>
           </div>
-        </div>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
+    </header>
   );
 }
 

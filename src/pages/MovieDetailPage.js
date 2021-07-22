@@ -135,13 +135,13 @@ function MovieDetailPage() {
   };
 
   return (
-    <div className="bg-blue">
+    <div className="bg-blue h-full">
       <div className="z-50 absolute">
         <NavBar />
       </div>
       <div className="text-white max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-screen pt-16">
-          <div className="w-7/12 m-5">
+        <div className="flex flex-col md:flex-row bg-blue pt-16">
+          <div className="w-full md:w-7/12 mx-auto m-5">
             <div className="h-96 rounded-lg">
               <iframe
                 src={`https://www.youtube.com/embed/${moviesVideo?.results?.[0]?.key}`}
@@ -161,8 +161,8 @@ function MovieDetailPage() {
               </Slider>
             </div>
           </div>
-          <div className="w-5/12 m-5">
-            <div className="flex space-x-2 py-6">
+          <div className="w-full mx-auto md:w-5/12 md:m-5 h-auto">
+            <div className="flex flex-wrap space-x-2 space-y-2 py-6">
               {moviesDetail?.genres?.map(genre => (
                 <div
                   key={genre.id}
@@ -189,7 +189,7 @@ function MovieDetailPage() {
                   <p className="text-gray-600">Producer</p>
                 </div>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex">
                 <div className="">
                   <button className="text-white bg-red hover:text-white border-4 hover:bg-blue border-red-500 px-5 py-2 rounded-md text-base font-medium ">
                     Follow {fShortenNumber(moviesDetail.revenue)}
@@ -197,14 +197,13 @@ function MovieDetailPage() {
                 </div>
               </div>
             </div>
-
             <div>
               <p className="text-xl mb-3 border-b-4 border-red-500 w-16">
                 SYNOPSIS
               </p>
               <p>{moviesDetail.overview}</p>
             </div>
-            <div className="flex justify-between pt-9">
+            <div className="flex flex-wrap justify-between pt-9">
               {/* {moviesDetail?.production_companies?.map(production => (
                 <div key={production.id}>
                   {production.logo_path !== null && (
@@ -216,7 +215,7 @@ function MovieDetailPage() {
                   )}
                 </div>
               ))}*/}
-              <div className=" flex justify-between space-x-4 text-gray-500  py-2">
+              <div className="flex justify-between flex-wrap space-x-4 text-gray-500  py-2">
                 <div>
                   <p>Popularity</p>
                   <p> {fShortenNumber(moviesDetail.popularity)}</p>
@@ -246,10 +245,10 @@ function MovieDetailPage() {
           </div>
         </div>
       </div>
-      <div className="max-w-8xl mx-auto px-12 ">
-        <div className="flex justify-between items-center">
+      <div className="max-w-8xl mx-auto md:px-12 ">
+        <div className="flex justify-between items-center px-3">
           <div>
-            <h4 className="text-2xl py-8 text-white">
+            <h4 className="text-xl md:text-2xl py-8 text-white">
               Movies in the same genre
             </h4>
           </div>
@@ -275,7 +274,7 @@ function MovieDetailPage() {
         </Slider>
       </div>
 
-      <div className="pt-9 max-w-9xl mx-auto">
+      <div className="pt-7 max-w-9xl mx-auto bg-blue">
         <Footer />
       </div>
     </div>
