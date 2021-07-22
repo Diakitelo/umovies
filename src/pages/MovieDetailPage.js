@@ -39,9 +39,6 @@ function MovieDetailPage() {
     elem => elem.job === 'Producer',
   );
 
-  console.log('moviesDetail?.genres', moviesDetail?.genres?.[0]?.id);
-  console.log('sameGenreMovies', sameGenreMovies?.results);
-
   //const url = 'https://image.tmdb.org/t/p/original/';
 
   useEffect(() => {
@@ -142,6 +139,9 @@ function MovieDetailPage() {
       <div className="text-white max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row bg-blue pt-16">
           <div className="w-full md:w-7/12 mx-auto m-5">
+            <h1 className="text-4xl md:hidden font-semibold h-16">
+              {moviesDetail.title}
+            </h1>
             <div className="h-96 rounded-lg">
               <iframe
                 src={`https://www.youtube.com/embed/${moviesVideo?.results?.[0]?.key}`}
@@ -162,17 +162,17 @@ function MovieDetailPage() {
             </div>
           </div>
           <div className="w-full mx-auto md:w-5/12 md:m-5 h-auto">
-            <div className="flex flex-wrap space-x-2 space-y-2 py-6">
+            <div className="flex flex-wrap py-6">
               {moviesDetail?.genres?.map(genre => (
                 <div
                   key={genre.id}
-                  className="bg-red rounded-lg px-2 text-base"
+                  className="bg-red rounded-lg px-1 m-1 text-base"
                 >
                   <p>#{genre.name}</p>
                 </div>
               ))}
             </div>
-            <h1 className="text-4xl font-semibold h-28">
+            <h1 className="text-4xl hidden md:block font-semibold h-20">
               {moviesDetail.title}
             </h1>
             <div className="flex justify-between py-5">

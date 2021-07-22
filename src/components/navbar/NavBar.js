@@ -56,7 +56,7 @@ function NavBar() {
               </div>
             </div>
           </div>
-          <div className="hidden md:block px-5 space-x-2">
+          <div className="hidden na:invisible md:block px-5 space-x-2">
             <NavLink
               to="/login"
               className="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 text-lg font-medium"
