@@ -15,6 +15,7 @@ export default function Footer() {
             <a
               href="https://www.uplabs.com/posts/umovies-web-concept"
               target="_blank"
+              rel="noreferrer"
               className="text-xm normal-case w-11/12 text-gray-500"
             >
               Designed By Jayprakash Kachare
@@ -23,6 +24,7 @@ export default function Footer() {
             <a
               href="https://www.linkedin.com/in/diakitemohamed"
               target="_blank"
+              rel="noreferrer"
               className="text-xm normal-case w-11/12 text-gray-500"
             >
               Developed By Diakite Mohamed
