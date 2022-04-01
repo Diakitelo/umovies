@@ -12,9 +12,21 @@ export default function Footer() {
             <img className="h-90 w-90 pb-3" src={logo} alt="logo" />
           </div>
           <div>
-            <p className="text-xm normal-case w-11/12 text-gray-500">
-              Designed and Copyright By <br /> Jyprakash Kachare
-            </p>
+            <a
+              href="https://www.uplabs.com/posts/umovies-web-concept"
+              target="_blank"
+              className="text-xm normal-case w-11/12 text-gray-500"
+            >
+              Designed By Jayprakash Kachare
+            </a>
+            <br />
+            <a
+              href="https://www.linkedin.com/in/diakitemohamed"
+              target="_blank"
+              className="text-xm normal-case w-11/12 text-gray-500"
+            >
+              Developed By Diakite Mohamed
+            </a>
           </div>
           <div></div>
         </div>

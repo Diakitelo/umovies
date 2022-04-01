@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default function Poster({movie}) {
+export default function Poster({movie, isDetailPage = false}) {
   const url = 'https://image.tmdb.org/t/p/original/';
 
   return (
-    <Link to={`details/${movie.id}`}>
+    <Link to={isDetailPage ? `${movie.id}` : `details/${movie.id}`}>
       <div className="flex px-4 justify-between">
         <div className="w-56">
           <div className="h-60 w-full rounded-lg transition duration-500 hover:scale-105 transform cursor-pointer">

@@ -269,7 +269,7 @@ function MovieDetailPage() {
         </div>
         <Slider {...settingsGenre} ref={sliderRef}>
           {sameGenreMovies?.results?.map(movie => (
-            <Poster movie={movie} key={movie.id} />
+            <Poster isDetailPage={true} movie={movie} key={movie.id} />
           ))}
         </Slider>
       </div>
